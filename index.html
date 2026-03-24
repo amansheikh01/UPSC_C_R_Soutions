@@ -553,6 +553,47 @@ if(minmax == maxmin) {
             <strong>Conclusion:</strong> The program dynamically constructs a matrix from a raw vector and computes the MinMax and MaxMin values using strict manual comparisons. By comparing these values at the end, it correctly evaluates the presence of a saddle point.
         </div>
     </div>
+
+
+<div class="question-section" id="summary-2025" style="border-bottom: none;">
+        <h2>📚 Paper Summary &amp; Key Focus Areas</h2>
+        
+        <h3>🎯 Core Concepts Tested in This Paper</h3>
+        <p>Based on the questions in this year's examination, aspirants should heavily focus on the following domains:</p>
+        <ul>
+            <li><strong>Low-Level Operations in C:</strong> A deep understanding of bitwise operators (<code>&amp;</code>, <code>|</code>, <code>^</code>, <code>~</code>) and shift operators is crucial. The examiner expects clarity on how these operate at the memory level.</li>
+            <li><strong>Control Structures &amp; Logic Building:</strong> Problems like the Leap Year check and Series Summation test your ability to construct nested conditions and manage loop counters (especially manipulating multiple variables in a single <code>for</code> loop).</li>
+            <li><strong>File Handling in C:</strong> Fundamental file I/O operations (<code>fopen</code>, <code>fclose</code>, <code>fprintf</code>, <code>fscanf</code>) remain a high-yield topic for theory and short coding questions.</li>
+            <li><strong>Algorithmic Implementation in R:</strong> The paper emphasizes writing logic from scratch. You must know how to traverse and manipulate data structures like matrices using nested loops without relying on R's powerful built-in vectorization.</li>
+        </ul>
+
+        <h3>📌 Points to Remember</h3>
+        <ul>
+            <li><strong>Zero-Inbuilt Rule:</strong> Always prepare to write algorithms manually. If asked to find a maximum, minimum, or sort an array, write the explicit loop logic rather than using <code>max()</code>, <code>min()</code>, or <code>sort()</code>.</li>
+            <li><strong>Data Types matter:</strong> In series summation, always ensure proper typecasting (e.g., <code>(float)i/j</code>) to prevent unintended integer division leading to zero or truncated results.</li>
+        </ul>
+
+        <h2 style="margin-top: 50px;">🎯 Try These: Practice Questions</h2>
+        <p>To solidify the concepts learned in this paper, attempt the following questions using the exact same constraints (manual logic, no built-in functions):</p>
+
+        <h3>📝 Practice Question 1 (C Programming)</h3>
+        <p>Write a C program to check if a given positive integer is a power of 2 using <strong>only bitwise operators</strong> (no loops or division).</p>
+
+        <div class="hint-box">
+            <strong>💡 Hint &amp; Approach:</strong><br>
+            Think about the binary representation of a power of 2 (e.g., 4 is $0100$, 8 is $1000$). Notice that a power of 2 has exactly one '1' bit. <br>
+            Now look at the number just before it (e.g., 3 is $0011$, 7 is $0111$). <br>
+            If you perform a Bitwise AND between a power of 2 ($n$) and ($n-1$), what is the result? The condition <code>(n &amp; (n - 1)) == 0</code> is the key.
+        </div>
+
+        <h3>📝 Practice Question 2 (R Programming)</h3>
+        <p>Write an R script to compute the transpose of a given $m \times n$ matrix. You must create an empty matrix of dimensions $n \times m$ and use nested loops to populate it. <strong>Do not use the <code>t()</code> function.</strong></p>
+
+        <div class="hint-box">
+            <strong>💡 Hint &amp; Approach:</strong><br>
+            First, determine the dimensions of the original matrix $A$ using manual iteration or <code>nrow()</code> / <code>ncol()</code>. Initialize a new matrix $B$ filled with zeros, where the rows of $B$ equal the columns of $A$, and the columns of $B$ equal the rows of $A$. Use two nested loops <code>for (i in 1:m)</code> and <code>for (j in 1:n)</code>, and assign the values using the logic: <code>B[j, i] &lt;- A[i, j]</code>.
+        </div>
+    </div>
 </div>
 </body>
 </html>
