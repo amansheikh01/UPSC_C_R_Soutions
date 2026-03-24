@@ -327,6 +327,232 @@ int main()
         </div>
     </div>
 
+
+
+<div class="question-section" id="q13c">
+        <h2>📌 Q13 (c) C Program to Calculate the Sum of the Expression</h2>
+        
+        <h3>📝 Problem Statement</h3>
+        <p>Write a C program to calculate the sum of the following series:</p>
+        <div class="math-display">
+            $$ \frac{1}{2} + \frac{5}{6} + \frac{9}{10} + ... + \frac{99}{100} $$
+        </div>
+
+        <h3>📖 Introduction</h3>
+        <p>The given series follows a specific arithmetic pattern where:</p>
+        <ul>
+            <li>The <strong>numerator</strong> starts at 1 and increases by 4 each time.</li>
+            <li>The <strong>denominator</strong> starts at 2 and increases by 4 each time.</li>
+        </ul>
+        <p>The last term of the series is $\frac{99}{100}$. The program calculates the cumulative sum using a single loop, ensuring proper typecasting to handle floating-point division.</p>
+
+        <h3>⚙️ Algorithm</h3>
+        <ol>
+            <li>Start the program.</li>
+            <li>Initialize the <code>sum</code> variable to zero (as a float).</li>
+            <li>Use a <code>for</code> loop initializing <code>i = 1</code> and <code>j = 2</code>.</li>
+            <li>For each step, calculate the fraction: divide <code>i</code> by <code>j</code>.</li>
+            <li>Add the calculated value to the <code>sum</code>.</li>
+            <li>Increment both <code>i</code> and <code>j</code> by 4.</li>
+            <li>Continue the loop until the numerator <code>i</code> exceeds 99.</li>
+            <li>Display the final <code>sum</code>.</li>
+            <li>Stop the program.</li>
+        </ol>
+
+        <h3>💻 C Program</h3>
+<pre><code class="language-c">#include &lt;stdio.h&gt;
+
+int main()
+{
+    int i, j;
+    float sum = 0;
+
+    /* Loop steps numerator and denominator by 4 simultaneously */
+    for(i = 1, j = 2; i &lt;= 99; i = i + 4, j = j + 4)
+    {
+        /* Explicitly cast 'i' to float to prevent integer division */
+        sum = sum + (float)i / j;
+    }
+
+    printf("Sum of the series = %f", sum);
+
+    return 0;
+}</code></pre>
+
+        <h3>📊 Meaning of Variables Used</h3>
+        <ul>
+            <li><strong><code>i</code></strong> : Represents the numerator values (1, 5, 9, ..., 99).</li>
+            <li><strong><code>j</code></strong> : Represents the denominator values (2, 6, 10, ..., 100).</li>
+            <li><strong><code>sum</code></strong> : Stores the cumulative sum of the fractional series.</li>
+        </ul>
+
+        <div class="conclusion-box">
+            <strong>Conclusion:</strong> The program generates the given mathematical series using precise loop control. By incrementing multiple variables within a single <code>for</code> loop and utilizing explicit typecasting, it calculates the final sum efficiently.
+        </div>
+    </div>
+<div class="question-section" id="q13d">
+        <h2>📌 Q13 (d) Explain Any Five File Operations in C</h2>
+        
+        <h3>📖 Introduction</h3>
+        <p>File handling in C allows programs to store data permanently in external files. This enables data to be saved, processed, and retrieved even after the program's execution is completed.</p>
+        <p>Instead of storing data temporarily in RAM (which is volatile), file operations allow direct interaction with the hard drive. The C standard library provides several functions to perform these critical operations.</p>
+
+        
+
+        <h3>⚙️ Important File Operations</h3>
+
+        <h4>1. <code>fopen()</code> - Open a File</h4>
+        <p>This function is used to open an existing file or create a new one. It returns a file pointer that is used to access the file in subsequent operations.</p>
+        <ul>
+            <li><strong><code>r</code></strong> : Read mode</li>
+            <li><strong><code>w</code></strong> : Write mode (overwrites existing data)</li>
+            <li><strong><code>a</code></strong> : Append mode (adds data to the end)</li>
+        </ul>
+<pre><code class="language-c">FILE *fp;
+fp = fopen("data.txt", "r");</code></pre>
+
+        <h4>2. <code>fclose()</code> - Close a File</h4>
+        <p>Once all operations are completed, it is mandatory to close the file to free up memory resources and ensure all buffers are flushed to the disk.</p>
+<pre><code class="language-c">fclose(fp);</code></pre>
+
+        <h4>3. <code>fprintf()</code> - Write Formatted Data</h4>
+        <p>Similar to <code>printf()</code>, but instead of writing to the console screen, it writes formatted text directly into the specified file.</p>
+<pre><code class="language-c">fprintf(fp, "Student Name: %s, Marks: %d", name, marks);</code></pre>
+
+        <h4>4. <code>fscanf()</code> - Read Formatted Data</h4>
+        <p>Similar to <code>scanf()</code>, it reads formatted data from the file instead of the standard input (keyboard).</p>
+<pre><code class="language-c">int num;
+fscanf(fp, "%d", &amp;num);</code></pre>
+
+        <h4>5. <code>fgetc()</code> and <code>fputc()</code> - Character I/O</h4>
+        <p>These functions are used to read (<code>fgetc</code>) and write (<code>fputc</code>) a single character from or to a file. They are often used in loops to process files character by character.</p>
+<pre><code class="language-c">char ch;
+/* Read a character */
+ch = fgetc(fp);
+
+/* Write a character */
+fputc(ch, fp);</code></pre>
+
+        <div class="conclusion-box">
+            <strong>Conclusion:</strong> File operations form the foundation of persistent data storage in C. By mastering <code>fopen</code>, <code>fclose</code>, and various read/write commands, programs can handle large-scale data processing applications and robust database systems efficiently.
+        </div>
+    </div>
+<div class="question-section" id="q13e">
+        <h2>📌 Q13 (e) R Code for Vector and Matrix Operations</h2>
+        
+        <h3>📝 Problem Statement</h3>
+        <p>Write a set of R codes to perform the following operations:</p>
+        <ol>
+            <li>Read a vector of values.</li>
+            <li>Create a matrix of dimensions $r_1 \times c_1$.</li>
+            <li>Compute the <strong>MinMax</strong> and <strong>MaxMin</strong> values.</li>
+            <li>Print whether these two values are equal or not.</li>
+        </ol>
+
+        <h3>📖 Introduction</h3>
+        <p>In matrix theory, two highly important values can be computed from a matrix to determine optimal strategies or saddle points:</p>
+        <ul>
+            <li><strong>MinMax</strong> : The minimum of the column maximum values.</li>
+            <li><strong>MaxMin</strong> : The maximum of the row minimum values.</li>
+        </ul>
+        <p>If these two values are equal, that specific value is called the <strong>saddle point</strong> of the matrix.</p>
+        <p>To demonstrate computational proficiency, this program constructs the matrix from a given vector and computes the MinMax and MaxMin values manually using nested loops, entirely avoiding R's built-in <code>min()</code> and <code>max()</code> functions.</p>
+
+        
+
+        <h3>💻 R Program (100% Manual Implementation)</h3>
+<pre><code class="language-r"># Step 1: Input vector
+v &lt;- c(4, 7, 2, 9, 5, 6)
+
+# Step 2: Matrix dimensions
+r1 &lt;- 2
+c1 &lt;- 3
+
+# Step 3: Create matrix manually
+m &lt;- matrix(0, r1, c1)
+k &lt;- 1
+
+for(i in 1:r1) {
+  for(j in 1:c1) {
+    m[i,j] &lt;- v[k]
+    k &lt;- k + 1
+  }
+}
+
+cat("Matrix is:\n")
+print(m)
+
+# Step 4: Compute row minimums
+row_min &lt;- numeric(r1)
+
+for(i in 1:r1) {
+  min_val &lt;- m[i,1]
+  
+  for(j in 2:c1) {
+    if(m[i,j] &lt; min_val) {
+      min_val &lt;- m[i,j]
+    }
+  }
+  row_min[i] &lt;- min_val
+}
+
+# Step 5: Compute column maximums
+col_max &lt;- numeric(c1)
+
+for(j in 1:c1) {
+  max_val &lt;- m[1,j]
+  
+  for(i in 2:r1) {
+    if(m[i,j] &gt; max_val) {
+      max_val &lt;- m[i,j]
+    }
+  }
+  col_max[j] &lt;- max_val
+}
+
+# Step 6: Find MinMax (Minimum of column maximums)
+minmax &lt;- col_max[1]
+
+for(j in 2:c1) {
+  if(col_max[j] &lt; minmax) {
+    minmax &lt;- col_max[j]
+  }
+}
+
+# Step 7: Find MaxMin (Maximum of row minimums)
+maxmin &lt;- row_min[1]
+
+for(i in 2:r1) {
+  if(row_min[i] &gt; maxmin) {
+    maxmin &lt;- row_min[i]
+  }
+}
+
+cat("MinMax =", minmax, "\n")
+cat("MaxMin =", maxmin, "\n")
+
+# Step 8: Check equality
+if(minmax == maxmin) {
+  cat("MinMax and MaxMin are Equal (Saddle Point Exists)\n")
+} else {
+  cat("MinMax and MaxMin are Not Equal\n")
+}</code></pre>
+
+        <h3>📊 Meaning of Variables Used</h3>
+        <ul>
+            <li><strong><code>v</code></strong> : Vector containing the raw input values.</li>
+            <li><strong><code>m</code></strong> : Matrix formed iteratively from the vector.</li>
+            <li><strong><code>r1</code> / <code>c1</code></strong> : Number of rows and columns in the matrix.</li>
+            <li><strong><code>row_min</code></strong> : Array storing the minimum value of each row.</li>
+            <li><strong><code>col_max</code></strong> : Array storing the maximum value of each column.</li>
+            <li><strong><code>minmax</code></strong> : The minimum value among the computed column maximums.</li>
+            <li><strong><code>maxmin</code></strong> : The maximum value among the computed row minimums.</li>
+        </ul>
+
+        <div class="conclusion-box">
+            <strong>Conclusion:</strong> The program dynamically constructs a matrix from a raw vector and computes the MinMax and MaxMin values using strict manual comparisons. By comparing these values at the end, it correctly evaluates the presence of a saddle point.
+        </div>
+    </div>
 </div>
 </body>
 </html>
