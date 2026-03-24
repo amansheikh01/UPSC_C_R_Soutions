@@ -156,151 +156,117 @@
         <p><em>A comprehensive, manually-coded approach to solving high-level statistical computing problems.</em></p>
     </div>
 
-    <h2>📌 Q13 (a) Relational and Logical Operators in C</h2>
+    <div class="container">
+    
+    <h2>📌 Q13 (a) Bitwise Operators and Bitwise Shift Operators in C</h2>
     
     <h3>📖 Introduction</h3>
-    <p>In C programming language, control of program execution is achieved through conditional and iterative constructs. At the core of these constructs lie <strong>Relational</strong> and <strong>Logical</strong> operators. These operators evaluate expressions and return truth values (0 or 1), thereby determining the flow of execution.</p>
+    <p>Bitwise operators are special operators in the C programming language that operate directly on the binary representation of integers. Instead of working with decimal values, these operators manipulate individual bits (0 or 1) of a number.</p>
+    <p>Bitwise operations are widely used in low-level programming, system software, device drivers, cryptography, and applications where efficient memory and performance optimization are required.</p>
 
-    <h3>⚙️ Relational Operators</h3>
-    <p>Relational operators evaluate the relationship between values and return <code>1</code> (True) or <code>0</code> (False).</p>
+    
+
+    <h3>⚙️ Types of Bitwise Operators</h3>
+    <p>The commonly used bitwise operators in C are:</p>
 
     <table>
         <thead>
             <tr>
                 <th>Operator</th>
-                <th>Meaning</th>
-                <th>Example Expression</th>
+                <th>Name</th>
+                <th>Description</th>
             </tr>
         </thead>
         <tbody>
-            <tr><td>&lt;</td><td>Less than</td><td>a &lt; b</td></tr>
-            <tr><td>&gt;</td><td>Greater than</td><td>a &gt; b</td></tr>
-            <tr><td>&lt;=</td><td>Less than or equal to</td><td>a &lt;= b</td></tr>
-            <tr><td>&gt;=</td><td>Greater than or equal to</td><td>a &gt;= b</td></tr>
-            <tr><td>==</td><td>Equal to</td><td>a == b</td></tr>
-            <tr><td>!=</td><td>Not equal to</td><td>a != b</td></tr>
+            <tr><td><code>&amp;</code></td><td>Bitwise AND</td><td>Returns 1 if both bits are 1</td></tr>
+            <tr><td><code>|</code></td><td>Bitwise OR</td><td>Returns 1 if at least one bit is 1</td></tr>
+            <tr><td><code>^</code></td><td>Bitwise XOR</td><td>Returns 1 if bits are different</td></tr>
+            <tr><td><code>~</code></td><td>Bitwise NOT</td><td>Inverts all bits</td></tr>
         </tbody>
     </table>
 
-    <div class="hint-box">
-        <strong>⚡ Short-Circuit Evaluation:</strong> C implements short-circuit evaluation to improve efficiency and safety. In AND (<code>&&</code>), if the first condition is false, the second is not evaluated.
-    </div>
-
-    <h2>📌 Q13 (b) C Program to Compute Median for Grouped Data</h2>
-    
-    <h3>📊 Statistical Background</h3>
-    <p>For a grouped frequency distribution, the median is calculated using the interpolation formula:</p>
+    <h3>1. Bitwise AND (<code>&amp;</code>)</h3>
+    <p>The bitwise AND operator compares each bit of two numbers. The result bit is 1 only when both corresponding bits are 1.</p>
     
     <div class="math-display">
-        $$Median = L + \left( \frac{\frac{N}{2} - CF}{f} \right) \times h$$
+        $$5 = 0101$$
+        $$3 = 0011$$
+        $$5 \ \& \ 3 = 0001 = 1$$
     </div>
 
-    <ul>
-        <li>$L$ = Lower boundary of median class</li>
-        <li>$N$ = Total frequency</li>
-        <li>$CF$ = Cumulative frequency before median class</li>
-        <li>$f$ = Frequency of median class</li>
-        <li>$h$ = Class width</li>
-    </ul>
+    <table>
+        <thead>
+            <tr><th>Bit of 5</th><th>Bit of 3</th><th>Result</th></tr>
+        </thead>
+        <tbody>
+            <tr><td>0</td><td>0</td><td>0</td></tr>
+            <tr><td>1</td><td>0</td><td>0</td></tr>
+            <tr><td>0</td><td>1</td><td>0</td></tr>
+            <tr><td>1</td><td>1</td><td>1</td></tr>
+        </tbody>
+    </table>
+    <p><em>Thus, the result of the AND operation is 1.</em></p>
 
-    <h3>💻 C Program</h3>
-<pre><code>#include &lt;stdio.h&gt;
-
-int main() {
-    int n, i;
-    float L, N = 0, CF = 0, f, h;
-    float freq[50], cum[50], lower[50];
-
-    printf("Enter number of classes: ");
-    scanf("%d", &n);
-
-    for(i = 0; i < n; i++) {
-        printf("Enter lower limit and frequency: ");
-        scanf("%f %f", &lower[i], &freq[i]);
-        N += freq[i];
-    }
-
-    cum[0] = freq[0];
-    for(i = 1; i < n; i++)
-        cum[i] = cum[i-1] + freq[i];
-
-    for(i = 0; i < n; i++) {
-        if(cum[i] >= N / 2) {
-            L = lower[i];
-            f = freq[i];
-            if(i != 0)
-                CF = cum[i-1];
-            break;
-        }
-    }
-
-    printf("Enter class width: ");
-    scanf("%f", &h);
-
-    float median = L + ((N / 2 - CF) / f) * h;
-
-    printf("Median = %.2f", median);
-    return 0;
-}</code></pre>
-
-    <h2>📌 Q14 (c) Compute Regression Equation of Y on X</h2>
-
-    <h3>📖 Mathematical Formulation</h3>
-    <p>In simple linear regression, we estimate the equation $Y = a + bX$. The regression coefficient (slope) is:</p>
-
+    <h3>2. Bitwise OR (<code>|</code>)</h3>
+    <p>The bitwise OR operator compares each bit of two numbers. The result bit is 1 if at least one of the corresponding bits is 1.</p>
+    
     <div class="math-display">
-        $$b = \frac{n\sum XY - (\sum X)(\sum Y)}{n\sum X^2 - (\sum X)^2}$$
+        $$5 = 0101$$
+        $$3 = 0011$$
+        $$5 \ | \ 3 = 0111 = 7$$
     </div>
+    <p><em>Thus, the OR operation produces the value 7.</em></p>
 
-    <p>The intercept is:</p>
+    <h3>3. Bitwise XOR (<code>^</code>)</h3>
+    <p>The bitwise XOR (exclusive OR) operator returns 1 when the corresponding bits of two numbers are different and returns 0 when they are the same.</p>
+    
     <div class="math-display">
-        $$a = \bar{Y} - b\bar{X}$$
+        $$5 = 0101$$
+        $$3 = 0011$$
+        $$5 \ \oplus \ 3 = 0110 = 6$$
+    </div>
+    <p><em>Hence the result is 6.</em></p>
+
+    <h3>4. Bitwise NOT (<code>~</code>)</h3>
+    <p>The bitwise NOT operator inverts all bits of a number. Every 0 becomes 1 and every 1 becomes 0.</p>
+    
+    <div class="math-display">
+        $$5 = 00000101$$
+        $$\sim 5 = 11111010$$
+    </div>
+    <p>In most systems using two's complement representation, this corresponds to the value: $\sim 5 = -6$</p>
+
+    <h3>🔄 Bitwise Shift Operators</h3>
+    
+    <table>
+        <thead>
+            <tr>
+                <th>Operator</th>
+                <th>Name</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td><code>&lt;&lt;</code></td><td>Left Shift</td><td>Shifts bits to the left</td></tr>
+            <tr><td><code>&gt;&gt;</code></td><td>Right Shift</td><td>Shifts bits to the right</td></tr>
+        </tbody>
+    </table>
+
+    <h4>1. Left Shift Operator (<code>&lt;&lt;</code>)</h4>
+    <p>Each bit shifts one position to the left and a 0 is inserted at the rightmost position. Thus, left shift is equivalent to multiplying the number by $2^n$.</p>
+    <div class="math-display">
+        $$5 \ll 1 = 00001010 = 10$$
     </div>
 
-    <h3>💻 C Program</h3>
-<pre><code>#include &lt;stdio.h&gt;
-
-int main() {
-    int n, i;
-    float x[100], y[100];
-    float sumx = 0, sumy = 0, sumxy = 0, sumx2 = 0;
-    float a, b;
-
-    printf("Enter number of observations: ");
-    scanf("%d", &n);
-
-    for(i = 0; i < n; i++) {
-        printf("Enter X and Y: ");
-        scanf("%f %f", &x[i], &y[i]);
-        sumx += x[i];
-        sumy += y[i];
-        sumxy += x[i] * y[i];
-        sumx2 += x[i] * x[i];
-    }
-
-    b = (n * sumxy - sumx * sumy) / (n * sumx2 - sumx * sumx);
-    a = (sumy / n) - b * (sumx / n);
-
-    printf("Regression Equation: Y = %.2f + %.2fX", a, b);
-
-    return 0;
-}</code></pre>
-
-    <h2>🎯 Try These: Practice Questions</h2>
-
-    <h3>📝 Practice Question 1 (C Programming)</h3>
-    <p>Write a C program to compute the standard deviation for <strong>grouped frequency data</strong> using the formula $\sigma = \sqrt{\frac{\sum f(x - \bar{x})^2}{N}}$. You must accept the mid-point ($x$) and frequency ($f$) for each class from the user.</p>
-
-    <div class="hint-box">
-        <strong>💡 Hint:</strong> This requires two passes (loops) over the data arrays. First, compute the total frequency $N$ and the sum $\sum fx$ to find the mean. In the second loop, compute the squared deviations.
+    <h4>2. Right Shift Operator (<code>&gt;&gt;</code>)</h4>
+    <p>Each bit moves one position to the right. Thus, right shift is equivalent to dividing the number by $2^n$.</p>
+    <div class="math-display">
+        $$8 \gg 1 = 00000100 = 4$$
     </div>
 
-    <hr style="border: 0; border-top: 1px solid #e2e8f0; margin: 40px 0;">
-    <div style="text-align: center; color: #718096; font-size: 0.9em;">
-        <i>Documented and Coded manually for UPSC Aspirants and Data Science Enthusiasts</i>
+    <div class="conclusion-box">
+        <strong>Conclusion:</strong> Bitwise operators allow direct manipulation of binary data and provide efficient computation at the hardware level. They are widely used in system programming, embedded systems, network protocols, and performance-critical applications.
     </div>
-
-</div>
-
+    </div>
 </body>
 </html>
