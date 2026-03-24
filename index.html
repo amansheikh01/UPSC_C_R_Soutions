@@ -268,5 +268,65 @@
         <strong>Conclusion:</strong> Bitwise operators allow direct manipulation of binary data and provide efficient computation at the hardware level. They are widely used in system programming, embedded systems, network protocols, and performance-critical applications.
     </div>
     </div>
+
+
+
+    <div class="question-section" id="q13b">
+        <h2>📌 Q13 (b) C Program to Check Whether a Given Year is a Leap Year</h2>
+        
+        <h3>📝 Problem Statement</h3>
+        <p>Write a C program to determine whether a given year is a leap year or not.</p>
+
+        <h3>📖 Introduction</h3>
+        <p>A leap year is a year that contains 366 days instead of 365 days. The extra day is added to the month of February.</p>
+        <p>A year is considered a leap year if it satisfies the following conditions:</p>
+        <ul>
+            <li>The year is divisible by 4.</li>
+            <li>If the year is divisible by 100, then it must also be divisible by 400.</li>
+        </ul>
+        <p><strong>Examples:</strong> 2000 is a leap year. 1900 is not a leap year. 2024 is a leap year.</p>
+
+        
+
+        <h3>⚙️ Algorithm</h3>
+        <ol>
+            <li>Start the program.</li>
+            <li>Read the input year from the user.</li>
+            <li>Check if the year is divisible by 400. If true, it is a leap year.</li>
+            <li>Otherwise check if the year is divisible by 4 but not by 100. If true, it is a leap year.</li>
+            <li>Otherwise the year is not a leap year.</li>
+            <li>Display the result.</li>
+            <li>Stop the program.</li>
+        </ol>
+
+        <h3>💻 C Program</h3>
+<pre><code class="language-c">#include &lt;stdio.h&gt;
+
+int main()
+{
+    int year;
+
+    printf("Enter a year: ");
+    scanf("%d", &year);
+
+    if((year % 400 == 0) || (year % 4 == 0 && year % 100 != 0))
+        printf("The year is a Leap Year");
+    else
+        printf("The year is Not a Leap Year");
+
+    return 0;
+}</code></pre>
+
+        <h3>📊 Meaning of Variables Used</h3>
+        <ul>
+            <li><strong>year</strong>: Stores the year entered by the user.</li>
+        </ul>
+
+        <div class="conclusion-box">
+            <strong>Conclusion:</strong> The program checks divisibility conditions to determine whether the given year satisfies the leap year rule and prints the result accordingly.
+        </div>
+    </div>
+
+</div>
 </body>
 </html>
