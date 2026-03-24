@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UPSC Computing Solutions 2024</title>
+    
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$']],
+                displayMath: [['$$', '$$']]
+            }
+        };
+    </script>
+
+    <style>
+        :root {
+            --primary-blue: #1a365d;
+            --secondary-blue: #2b6cb0;
+            --light-bg: #f7fafc;
+            --code-bg: #2d3748;
+            --text-main: #2d3748;
+            --border-color: #e2e8f0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-main);
+            background-color: #edf2f7;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 40px auto;
+            background: #ffffff;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+        }
+
+        .header {
+            text-align: center;
+            padding-bottom: 20px;
+            border-bottom: 3px solid var(--primary-blue);
+            margin-bottom: 30px;
+        }
+
+        .header h1 {
+            color: var(--primary-blue);
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        .header h3 {
+            color: #4a5568;
+            font-weight: 400;
+        }
+
+        .badges {
+            margin: 15px 0;
+        }
+
+        h2 {
+            color: var(--secondary-blue);
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 8px;
+            margin-top: 40px;
+        }
+
+        h3 {
+            color: var(--primary-blue);
+            margin-top: 25px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background-color: white;
+        }
+
+        th, td {
+            padding: 12px 15px;
+            border: 1px solid var(--border-color);
+            text-align: left;
+        }
+
+        th {
+            background-color: var(--primary-blue);
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: var(--light-bg);
+        }
+
+        pre {
+            background-color: var(--code-bg);
+            color: #f8f8f2;
+            padding: 15px;
+            border-radius: 8px;
+            overflow-x: auto;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 14px;
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        code {
+            font-family: 'Courier New', Courier, monospace;
+            background-color: var(--light-bg);
+            padding: 2px 5px;
+            border-radius: 4px;
+            color: #c53030;
+        }
+
+        pre code {
+            background-color: transparent;
+            color: inherit;
+            padding: 0;
+        }
+
+        .hint-box {
+            background-color: #ebf8ff;
+            border-left: 5px solid #3182ce;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .hint-box strong {
+            color: #2b6cb0;
+        }
+
+        .math-display {
+            overflow-x: auto;
+            padding: 10px 0;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="header">
+        <h1>🏛️ UPSC Advanced Examination Practice</h1>
+        <h3>Computing with C and R — Model Solutions (2024)</h3>
+        <div class="badges">
+            <img src="https://img.shields.io/badge/Language-C%20%7C%20R-blue?style=for-the-badge" alt="Language">
+            <img src="https://img.shields.io/badge/Constraint-Zero_Built--in_Functions-red?style=for-the-badge" alt="Constraint">
+        </div>
+        <p><em>A comprehensive, manually-coded approach to solving high-level statistical computing problems.</em></p>
+    </div>
+
+    <h2>📌 Q13 (a) Relational and Logical Operators in C</h2>
+    
+    <h3>📖 Introduction</h3>
+    <p>In C programming language, control of program execution is achieved through conditional and iterative constructs. At the core of these constructs lie <strong>Relational</strong> and <strong>Logical</strong> operators. These operators evaluate expressions and return truth values (0 or 1), thereby determining the flow of execution.</p>
+
+    <h3>⚙️ Relational Operators</h3>
+    <p>Relational operators evaluate the relationship between values and return <code>1</code> (True) or <code>0</code> (False).</p>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Operator</th>
+                <th>Meaning</th>
+                <th>Example Expression</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td>&lt;</td><td>Less than</td><td>a &lt; b</td></tr>
+            <tr><td>&gt;</td><td>Greater than</td><td>a &gt; b</td></tr>
+            <tr><td>&lt;=</td><td>Less than or equal to</td><td>a &lt;= b</td></tr>
+            <tr><td>&gt;=</td><td>Greater than or equal to</td><td>a &gt;= b</td></tr>
+            <tr><td>==</td><td>Equal to</td><td>a == b</td></tr>
+            <tr><td>!=</td><td>Not equal to</td><td>a != b</td></tr>
+        </tbody>
+    </table>
+
+    <div class="hint-box">
+        <strong>⚡ Short-Circuit Evaluation:</strong> C implements short-circuit evaluation to improve efficiency and safety. In AND (<code>&&</code>), if the first condition is false, the second is not evaluated.
+    </div>
+
+    <h2>📌 Q13 (b) C Program to Compute Median for Grouped Data</h2>
+    
+    <h3>📊 Statistical Background</h3>
+    <p>For a grouped frequency distribution, the median is calculated using the interpolation formula:</p>
+    
+    <div class="math-display">
+        $$Median = L + \left( \frac{\frac{N}{2} - CF}{f} \right) \times h$$
+    </div>
+
+    <ul>
+        <li>$L$ = Lower boundary of median class</li>
+        <li>$N$ = Total frequency</li>
+        <li>$CF$ = Cumulative frequency before median class</li>
+        <li>$f$ = Frequency of median class</li>
+        <li>$h$ = Class width</li>
+    </ul>
+
+    <h3>💻 C Program</h3>
+<pre><code>#include &lt;stdio.h&gt;
+
+int main() {
+    int n, i;
+    float L, N = 0, CF = 0, f, h;
+    float freq[50], cum[50], lower[50];
+
+    printf("Enter number of classes: ");
+    scanf("%d", &n);
+
+    for(i = 0; i < n; i++) {
+        printf("Enter lower limit and frequency: ");
+        scanf("%f %f", &lower[i], &freq[i]);
+        N += freq[i];
+    }
+
+    cum[0] = freq[0];
+    for(i = 1; i < n; i++)
+        cum[i] = cum[i-1] + freq[i];
+
+    for(i = 0; i < n; i++) {
+        if(cum[i] >= N / 2) {
+            L = lower[i];
+            f = freq[i];
+            if(i != 0)
+                CF = cum[i-1];
+            break;
+        }
+    }
+
+    printf("Enter class width: ");
+    scanf("%f", &h);
+
+    float median = L + ((N / 2 - CF) / f) * h;
+
+    printf("Median = %.2f", median);
+    return 0;
+}</code></pre>
+
+    <h2>📌 Q14 (c) Compute Regression Equation of Y on X</h2>
+
+    <h3>📖 Mathematical Formulation</h3>
+    <p>In simple linear regression, we estimate the equation $Y = a + bX$. The regression coefficient (slope) is:</p>
+
+    <div class="math-display">
+        $$b = \frac{n\sum XY - (\sum X)(\sum Y)}{n\sum X^2 - (\sum X)^2}$$
+    </div>
+
+    <p>The intercept is:</p>
+    <div class="math-display">
+        $$a = \bar{Y} - b\bar{X}$$
+    </div>
+
+    <h3>💻 C Program</h3>
+<pre><code>#include &lt;stdio.h&gt;
+
+int main() {
+    int n, i;
+    float x[100], y[100];
+    float sumx = 0, sumy = 0, sumxy = 0, sumx2 = 0;
+    float a, b;
+
+    printf("Enter number of observations: ");
+    scanf("%d", &n);
+
+    for(i = 0; i < n; i++) {
+        printf("Enter X and Y: ");
+        scanf("%f %f", &x[i], &y[i]);
+        sumx += x[i];
+        sumy += y[i];
+        sumxy += x[i] * y[i];
+        sumx2 += x[i] * x[i];
+    }
+
+    b = (n * sumxy - sumx * sumy) / (n * sumx2 - sumx * sumx);
+    a = (sumy / n) - b * (sumx / n);
+
+    printf("Regression Equation: Y = %.2f + %.2fX", a, b);
+
+    return 0;
+}</code></pre>
+
+    <h2>🎯 Try These: Practice Questions</h2>
+
+    <h3>📝 Practice Question 1 (C Programming)</h3>
+    <p>Write a C program to compute the standard deviation for <strong>grouped frequency data</strong> using the formula $\sigma = \sqrt{\frac{\sum f(x - \bar{x})^2}{N}}$. You must accept the mid-point ($x$) and frequency ($f$) for each class from the user.</p>
+
+    <div class="hint-box">
+        <strong>💡 Hint:</strong> This requires two passes (loops) over the data arrays. First, compute the total frequency $N$ and the sum $\sum fx$ to find the mean. In the second loop, compute the squared deviations.
+    </div>
+
+    <hr style="border: 0; border-top: 1px solid #e2e8f0; margin: 40px 0;">
+    <div style="text-align: center; color: #718096; font-size: 0.9em;">
+        <i>Documented and Coded manually for UPSC Aspirants and Data Science Enthusiasts</i>
+    </div>
+
+</div>
+
+</body>
+</html>
